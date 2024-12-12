@@ -4,9 +4,9 @@ public class PalindromePermutation {
 
     private static boolean isPalindromePermutation(String s) {
 
-        int bitMask = 0b0, n = s.length();
+        int bitMask = 0b0;
         // assumes ASCII in range 'a' - 'z'
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < s.length(); i++) {
             int val = s.charAt(i) - 'a';
             bitMask ^= (1 << val);
         }

@@ -9,10 +9,9 @@ public class CheckPermutation {
             return false;
 
         int[] counter = new int[128];
-        int n = a.length();
 
         // assumes ASCII
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < a.length(); i++) {
             char aChar = a.charAt(i), bChar = b.charAt(i);
             counter[aChar]++;
             counter[bChar]--;
