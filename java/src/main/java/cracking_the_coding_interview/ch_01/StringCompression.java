@@ -11,7 +11,7 @@ public class StringCompression {
             char ch = s.charAt(i);
             counter++;
 
-            if (i + 1 >= s.length() || s.charAt(i + 1) != ch) {
+            if (i + 1 == s.length() || s.charAt(i + 1) != ch) {
                 sb.append(ch).append(counter);
                 counter = 0;
             }
