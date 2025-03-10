@@ -73,9 +73,6 @@ fabric.properties
 # IntelliJ
 .idea/*
 
-!.idea/codeStyles
-!.idea/runConfigurations
-
 ### Java ###
 # Compiled class file
 *.class

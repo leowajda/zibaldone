@@ -1,0 +1,32 @@
+package cracking_the_coding_interview.ch_17;
+
+import java.util.Arrays;
+
+public class CircusTower {
+
+    private static int circusTower(int[][] people) {
+        Arrays.sort(people, (a, b) -> a[0] == b[0] ? b[1] - a[1] : a[0] - b[0]);
+        int n = people.length;
+
+        int[][] memo = new int[n + 1][n];
+        Arrays.stream(memo).forEach(arr -> Arrays.fill(arr, -1));
+        return helper(people, memo, -1, 0, 0);
+    }
+
+    private static int helper(int[][] people, int[][] memo, int prevIdx, int currIdx, int weightBound) {
+        if (currIdx == people.length)
+            return 0;
+
+        if (memo[prevIdx + 1][currIdx] >= 0)
+            return memo[prevIdx + 1][currIdx];
+
+        int taken = 0;
+        if (prevIdx < 0 || people[currIdx][1] > weightBound)
+            taken = helper(people, memo, currIdx, currIdx + 1, people[currIdx][1]) + 1;
+
+        int notTaken = helper(people, memo, prevIdx, currIdx + 1, weightBound);
+        return memo[prevIdx + 1][currIdx] = Math.max(taken, notTaken);
+    }
+
+}
+
