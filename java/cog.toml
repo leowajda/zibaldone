@@ -1,7 +1,3 @@
 [commit_types]
 solution = { changelog_title = "Solutions" }
 infra = { changelog_title = "", omit_from_changelog = true }
-
-[changelog]
-path = "CHANGELOG.md"
-authors = [{ signature = "Leonardo Wajda", username = "leowajda" }]
