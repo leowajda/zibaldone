@@ -40,7 +40,6 @@ public class ShortestSuperSequence {
 
         }
 
-
         return shortestSuperSequence;
     }
 

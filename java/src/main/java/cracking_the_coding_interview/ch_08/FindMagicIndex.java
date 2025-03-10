@@ -17,5 +17,4 @@ public class FindMagicIndex {
         return leftMagicIndex != -1 ? leftMagicIndex : helper(nums, middle + 1, right);
     }
 
-
 }

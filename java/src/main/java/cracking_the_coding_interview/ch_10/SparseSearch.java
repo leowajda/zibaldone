@@ -23,5 +23,4 @@ public class SparseSearch {
         return middleWord.compareTo(target) < 0 ? helper(words, target, middle + 1, right) : helper(words, target, left, middle - 1);
     }
 
-
 }

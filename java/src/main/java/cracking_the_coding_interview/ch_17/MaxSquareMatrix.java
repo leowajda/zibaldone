@@ -35,7 +35,6 @@ public class MaxSquareMatrix {
                     maximalSquare = Math.max(maximalSquare, memo[row][col]);
                 }
 
-
         return maximalSquare * maximalSquare;
     }
 

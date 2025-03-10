@@ -1,6 +1,5 @@
 package cracking_the_coding_interview.ch_04;
 
-
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +26,6 @@ public class ListOfDepths {
 
             listOfDepths.add(listOfDepth);
         }
-
 
         return listOfDepths;
     }

@@ -1,25 +1,7 @@
 package cracking_the_coding_interview.ch_17;
 
-
 import java.util.Arrays;
-import java.util.Comparator;
 
-import static java.util.Comparator.comparingInt;
-
-/*
-    A circus is designing a tower routine consisting of people standing atop one another's shoulders.
-    For practical and aesthetic reasons, each person must be both shorter and lighter than the person below him or her.
-    Given the heights and weights of each person in the circus, write a method to compute the largest possible number of people in such a tower.
-
-    people[i][0] <= people[i - 1][0] && people[i][1] <= people[i - 1][1]
-
-    (5, 5) (4, 4) (3, 3) (2, 2)
-
-    (10, 1) (6, 9) (3, 3) (2, 2)
-
-    idx, count, int[]
-
-*/
 public class CircusTower {
 
     private static int circusTower(int[][] people) {
@@ -45,8 +27,6 @@ public class CircusTower {
         int notTaken = helper(people, memo, prevIdx, currIdx + 1, weightBound);
         return memo[prevIdx + 1][currIdx] = Math.max(taken, notTaken);
     }
-
-
 
 }
 

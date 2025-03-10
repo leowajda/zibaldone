@@ -40,5 +40,4 @@ public class BooleanEvaluation {
         return memo.put(exp + result, ways);
     }
 
-
 }

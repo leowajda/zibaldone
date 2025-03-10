@@ -25,7 +25,6 @@ public class SearchInRotatedArray {
             else                       right = middle - 1;
         }
 
-
         return -1;
     }
 

@@ -46,5 +46,4 @@ public class RankFromStream {
         return root.getRank(num);
     }
 
-
 }

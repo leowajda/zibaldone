@@ -1,7 +1,5 @@
 package cracking_the_coding_interview.ch_03;
 
-import java.util.EmptyStackException;
-
 public class StackMin {
 
     private IntStack stack;

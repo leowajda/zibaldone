@@ -21,5 +21,4 @@ public class MajorityElement {
         return majorityNum;
     }
 
-
 }

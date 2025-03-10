@@ -3,7 +3,6 @@ package cracking_the_coding_interview.ch_04;
 public class Successor {
 
     private static TreeNode inOrderSuccessor(TreeNode node) {
-
         if (node == null) return null;
 
         if (node.right != null)
@@ -24,7 +23,5 @@ public class Successor {
             node = node.left;
         return node;
     }
-
-
 
 }

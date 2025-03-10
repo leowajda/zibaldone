@@ -25,5 +25,4 @@ public class GroupAnagrams {
         return new String(chars);
     }
 
-
 }

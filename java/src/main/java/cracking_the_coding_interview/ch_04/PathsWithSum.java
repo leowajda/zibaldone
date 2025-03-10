@@ -10,7 +10,6 @@ public class PathsWithSum {
     }
 
     private int helper(TreeNode root, int prefixSum, int targetSum, Map<Integer, Integer> counter) {
-
         if (root == null) return 0;
         prefixSum += root.val;
 

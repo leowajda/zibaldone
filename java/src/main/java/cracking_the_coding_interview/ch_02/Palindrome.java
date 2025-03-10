@@ -1,9 +1,5 @@
 package cracking_the_coding_interview.ch_02;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Palindrome {
 
     private static boolean isPalindrome(Node node) {

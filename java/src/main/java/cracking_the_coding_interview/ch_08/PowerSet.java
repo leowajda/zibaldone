@@ -26,6 +26,4 @@ public class PowerSet {
         helper(nums, res, index + 1, stack);
     }
 
-
-
 }

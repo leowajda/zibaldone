@@ -5,7 +5,6 @@ import java.util.*;
 public class RouteBetweenNodes {
 
     private static boolean areNodesConnected(GraphNode start, GraphNode end) {
-
         Queue<GraphNode> queue = new ArrayDeque<>(List.of(start));
         Set<GraphNode> visited = new HashSet<>(List.of(start));
 
