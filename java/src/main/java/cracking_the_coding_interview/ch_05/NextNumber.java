@@ -4,8 +4,20 @@ public class NextNumber {
 
     private static int getNext(int num) {
 
-        int numZeros = countZeros(num), numOnes = countOnes(num);
-        int pos = numZeros + numOnes;
+        int numZeros = 0;
+        int numCopy  = num;
+        while (((numCopy & 1) == 0) && numCopy != 0) {
+            numZeros++;
+            numCopy >>= 1;
+        }
+
+        int numOnes = 0;
+        while ((numCopy & 1) == 1) {
+            numOnes++;
+            numCopy >>= 1;
+        }
+
+        int pos = numZeros + numOnes; // rightmost non-trailing zero
 
         if (pos == 31 || pos == 0)
             return -1;
@@ -18,31 +30,27 @@ public class NextNumber {
 
     private static int getPrev(int num) {
 
-        int numZeros = countZeros(num), numOnes = countOnes(num);
-        int pos = numOnes + numZeros;
+        int numCopy = num;
+        int numOnes = 0;
+        while ((numCopy & 1) == 1) {
+            numOnes++;
+            numCopy >>= 1;
+        }
+
+        if (numCopy == 0) return -1;
+
+        int numZeros = 0;
+        while (((numCopy & 1) == 0) && numCopy != 0) {
+            numZeros++;
+            numCopy >>= 1;
+        }
+
+        int pos = numOnes + numZeros; // rightmost non-trailing one
 
         num &= ((~0) << (pos + 1));
         int mask = (1 << (numOnes + 1)) - 1;
         num |= mask << (numZeros - 1);
         return num;
-    }
-
-    private static int countOnes(int num) {
-        int numOnes = 0;
-        while ((num & 1) == 1) {
-            numOnes++;
-            num >>= 1;
-        }
-        return numOnes;
-    }
-
-    private static int countZeros(int num) {
-        int numZeros = 0;
-        while (((num & 1) == 0) && num != 0) {
-            numZeros++;
-            num >>= 1;
-        }
-        return numZeros;
     }
 
 }
