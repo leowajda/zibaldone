@@ -74,9 +74,6 @@ fabric.properties
 # that are supposed to be shared within teams.
 .idea/*
 
-!.idea/codeStyles
-!.idea/runConfigurations
-
 ### SBT ###
 # Simple Build Tool
 # http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
