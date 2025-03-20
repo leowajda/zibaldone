@@ -5,6 +5,7 @@ import cats.Semigroup
 import cats.instances.int.*
 import cats.syntax.semigroup.*
 
+// will throw an exception on empty iterables
 extension [T: Semigroup](iterable: Iterable[T])
   // ex. use extension method
   def reduceIterable: T = iterable.reduce(_ |+| _)
