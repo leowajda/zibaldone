@@ -9,6 +9,9 @@ extension [T: Monoid as monoid](iterable: Iterable[T])
   // ex. implement combineFold
   def foldIterable: T = iterable.fold(monoid.empty)(_ |+| _)
 
+trait `monoid`[A] extends ch_01.`semigroup`[A]:
+  def empty: A
+
 // ex. combine a list of phonebooks as Map[String, Int]
 import cats.instances.map.*
 

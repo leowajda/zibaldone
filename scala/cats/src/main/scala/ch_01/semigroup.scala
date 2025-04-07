@@ -10,6 +10,9 @@ extension [T: Semigroup](iterable: Iterable[T])
   // ex. use extension method
   def reduceIterable: T = iterable.reduce(_ |+| _)
 
+trait `semigroup`[A]:
+  def combine(x: A, y: A): A
+
 final case class Expense(id: Long, amount: Double)
 
 object Expense:

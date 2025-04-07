@@ -8,6 +8,9 @@ extension [F[_]: Functor as functor, A](container: F[A])
   // ex. use extension method
   def mapContainer[B](f: A => B): F[B] = container.map(f)
 
+trait `functor`[F[_]]:
+  def map[A, B](fa: F[A])(f: A => B): F[B]
+
 // ex. define functor for binary tree
 enum Tree[+T]:
 
