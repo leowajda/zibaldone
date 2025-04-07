@@ -4,7 +4,7 @@ package ch_01
 import cats.syntax.applicative.*
 import cats.syntax.flatMap.*
 import cats.syntax.functor.*
-import cats.{Applicative, FlatMap}
+import cats.{FlatMap, Monad}
 
 import scala.annotation.tailrec
 import scala.collection.mutable
@@ -15,25 +15,24 @@ extension [F[_]: FlatMap, A](container: F[A])
 
   // ex. return all combinations (A, B)
   def combine[B](otherContainer: F[B]): F[(A, B)] =
-    for a <- container; b <- otherContainer yield (a, b)
+    for // a.k.a `product` from the Semigroupal typeclass
+      a <- container
+      b <- otherContainer
+    yield (a, b)
 
-  def flatMapContainer[B](g: A => F[B]): F[B] = container.flatMap(g)
+trait `monad`[F[_]] extends ch_03.`applicative`[F]:
 
-extension [A](any: A)
-  // wraps a value into a monadic value
-  def lift[F[_]: Applicative]: F[A] = any.pure
-
-sealed trait Monad[F[_]]:
-
-  def pure[A](a: A): F[A]
   def flatMap[A, B](fa: F[A])(f: A => F[B]): F[B]
   // ex. implement map
-  def map[A, B](fa: F[A])(f: A => B): F[B] = flatMap(fa)(a => pure(f(a)))
+  final override def map[A, B](fa: F[A])(f: A => B): F[B] = flatMap(fa)(a => pure(f(a)))
+
+  final override def product[A, B](fa: F[A], fb: F[B]): F[(A, B)] =
+    flatMap(fa)(a => map(fb)(b => (a, b)))
 
 // ex. service layer API
 final case class Connection(host: String, port: String)
 
-sealed trait HttpService[F[_]: cats.Monad]:
+sealed trait HttpService[F[_]: Monad]:
 
   def connection(config: Map[String, String]): F[Connection]
 
@@ -61,7 +60,7 @@ object TryHttpService extends HttpService[Try]:
 // ex. monad for identity type
 opaque type Id[A] = A
 
-given cats.Monad[Id] = new cats.Monad[Id]:
+given Monad[Id] = new Monad[Id]:
 
   override def pure[A](x: A): Id[A] = x
 
@@ -80,7 +79,7 @@ enum BinaryTree[+T]:
   // for simplicity only hashes on the memory ref
   override def hashCode(): Int = System.identityHashCode(this)
 
-given cats.Monad[BinaryTree] = new cats.Monad[BinaryTree]:
+given Monad[BinaryTree] = new Monad[BinaryTree]:
 
   import ch_01.BinaryTree.{Branch, Leaf}
 
