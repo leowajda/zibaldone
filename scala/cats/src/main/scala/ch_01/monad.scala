@@ -20,9 +20,8 @@ extension [F[_]: FlatMap, A](container: F[A])
       b <- otherContainer
     yield (a, b)
 
-trait `monad`[F[_]] extends ch_03.`applicative`[F]:
+trait `monad`[F[_]] extends ch_03.`applicative`[F] with ch_03.`flatMap`[F]:
 
-  def flatMap[A, B](fa: F[A])(f: A => F[B]): F[B]
   // ex. implement map
   final override def map[A, B](fa: F[A])(f: A => B): F[B] = flatMap(fa)(a => pure(f(a)))
 
