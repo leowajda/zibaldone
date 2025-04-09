@@ -2,9 +2,8 @@ package com.zibaldone.cats
 package ch_03
 
 // cats.data.Validated can't be a Monad, but it still qualifies as an Applicative
-trait `applicative`[F[_]] extends ch_01.`functor`[F] with ch_03.`semigroupal`[F]:
+trait `applicative`[F[_]] extends ch_03.`apply`[F]:
   def pure[A](a: A): F[A]
-  // can't override `product` here because I haven't defined applicative.ap
 
 object `applicative`:
 
