@@ -8,8 +8,11 @@ extension [F[_]: Functor as functor, A](container: F[A])
   // ex. use extension method
   def mapContainer[B](f: A => B): F[B] = container.map(f)
 
-trait `functor`[F[_]]:
+// a.k.a the covariant functor
+trait `functor`[F[_]] extends ch_04.`invariant`[F]:
+
   def map[A, B](fa: F[A])(f: A => B): F[B]
+  override def imap[A, B](fa: F[A])(forth: A => B)(back: B => A): F[B] = map(fa)(forth)
 
 // ex. define functor for binary tree
 enum Tree[+T]:
