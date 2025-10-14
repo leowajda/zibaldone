@@ -8,19 +8,19 @@ import scala.collection.immutable.Queue
 import scala.concurrent.duration.*
 import scala.util.Random
 
-abstract class Mutex:
+abstract class MutexIO:
 
   def acquire: IO[Unit]
   def release: IO[Unit]
 
-object Mutex:
+object MutexIO:
 
-  private[Mutex] type Signal = Deferred[IO, Unit]
-  private[Mutex] final case class State(isLocked: Boolean, queue: Queue[Signal])
-  private[Mutex] val unlocked: State = State(false, Queue.empty)
+  private[MutexIO] type Signal = Deferred[IO, Unit]
+  private[MutexIO] final case class State(isLocked: Boolean, queue: Queue[Signal])
+  private[MutexIO] val unlocked: State = State(false, Queue.empty)
 
-  def create: IO[Mutex] = IO.ref(unlocked).map { state =>
-    new Mutex:
+  def apply(): IO[MutexIO] = IO.ref(unlocked).map { state =>
+    new MutexIO:
 
       override def acquire: IO[Unit] = IO.uncancelable { poll =>
         IO.deferred[Unit].flatMap { signal =>
@@ -51,7 +51,7 @@ object Mutex:
 
 def criticalTask: IO[Int] = IO.sleep(5.seconds) >> IO(Random.nextInt(100))
 
-def lockingTask(id: Int, mutex: Mutex): IO[Int] =
+def lockingTask(id: Int, mutex: MutexIO): IO[Int] =
   for
     _   <- IO.pure(s"[task-$id] - acquiring lock").inspect
     _   <- mutex.acquire
@@ -64,6 +64,6 @@ def lockingTask(id: Int, mutex: Mutex): IO[Int] =
 
 def lockingTasks: IO[Int] =
   for
-    mutex <- Mutex.create
+    mutex <- MutexIO()
     res   <- (1 to 10).toList.parTraverse(lockingTask(_, mutex))
   yield res.sum
