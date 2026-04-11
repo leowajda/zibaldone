@@ -1,0 +1,102 @@
+spring:
+  profiles:
+    # or through the command line
+    active: "demo"
+  main:
+    banner-mode: off
+    lazy-initialization: off
+    allow-bean-definition-overriding: true # openapi
+
+  shell:
+    interactive:
+      enabled: false
+
+
+  # ch_06
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+    properties:
+      hibernate:
+        generate_statistics: true
+        format_sql: true
+        highlight_sql: true
+
+  # internationalization
+  messages:
+    basename: messages.shell.fscommands
+
+  # ch_05
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/h2/unicorns
+    username: sa
+    password: ""
+
+# ch_06
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        orm:
+          jdbc:
+            bind: TRACE
+
+# ch_03:
+com:
+  tutego:
+    homepage: http://tutego.com/
+    number-of-seminars: 350
+
+    # custom conversion service
+    ports-to-test: 80,8000,8080
+    repetition-unit: SECONDS
+    max-file-size: 1MB
+    timeout: 20s
+    min-interval: 2d
+
+
+    map:
+      home-server:
+        ip: 126.32.66.28
+      traffic-server:
+        ip: 125.33.43.2
+
+    list:
+      - ip: 126.32.66.28
+      - ip: 111.229.178.175
+
+#ch_02: autoConfiguration
+debug: false
+
+#ch_02: autoConfiguration
+conditional:
+  property: true
+
+# ch_04: validation
+geometry:
+  box:
+    width: 100
+    height: 100
+  circle:
+    radius: 100
+
+# ch_10
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: demo
+
+com:
+  tutego:
+    homepage: http://demo.com/
+    number-of-seminars: 420

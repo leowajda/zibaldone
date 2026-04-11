@@ -102,7 +102,7 @@ replay_pid*
 ### Gradle ###
 .gradle
 **/build/
-!src/**/build/
+!cracking-the-coding-interview/src/**/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
