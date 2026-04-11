@@ -1,4 +1,4 @@
-package com.tutego.ch_02;
+package com.tutego.ch_02.classpathScanning;
 
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.tutego.ch_02;
+package com.tutego.ch_02.classpathScanning;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +23,7 @@ import java.util.Arrays;
 @SpringBootConfiguration
 @EnableAutoConfiguration
 @ComponentScan(
-        basePackageClasses = com.tutego.ch_02.CoreModule.class, // or basePackages for raw strings
+        basePackageClasses = ClassPathScanning.class, // or basePackages for raw strings
         useDefaultFilters = false, // by default @ComponentScan includes all @Component types
         includeFilters = {
                 @ComponentScan.Filter(
@@ -37,12 +37,12 @@ import java.util.Arrays;
                 ),
                 @ComponentScan.Filter(
                         type = FilterType.CUSTOM,
-                        classes = com.tutego.ch_02.CustomTypeFilter.class // customTypeFilter.InnerFinalClass
+                        classes = CustomTypeFilter.class // customTypeFilter.InnerFinalClass
                 )
         },
         excludeFilters = @ComponentScan.Filter(
                 type = FilterType.ASSIGNABLE_TYPE,
-                classes = com.tutego.ch_02.CoreModule.class
+                classes = ClassPathScanning.class
         )
 )
 public class Date4uApplication {
