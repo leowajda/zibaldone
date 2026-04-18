@@ -36,8 +36,3 @@ languages:
         path: scala/cats-effect
         source_roots:
           - src/main/scala
-      zio:
-        title: Zio
-        path: scala/zio
-        source_roots:
-          - src/main/scala
