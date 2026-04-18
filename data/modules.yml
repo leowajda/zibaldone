@@ -1,0 +1,43 @@
+version: 1
+source_url_base: https://github.com/leowajda/zibaldone/blob/master
+
+project:
+  slug: zibaldone
+  title: Zibaldone
+  description: Notes and source-based study material across selected Java and Scala projects.
+
+languages:
+  java:
+    title: Java
+    path: java
+    modules:
+      cracking-the-coding-interview:
+        title: Cracking the Coding Interview
+        path: java/cracking-the-coding-interview
+        source_roots:
+          - src/main/java
+      spring-boot:
+        title: Spring Boot
+        path: java/spring-boot
+        source_roots:
+          - src/main/java
+
+  scala:
+    title: Scala
+    path: scala
+    modules:
+      cats:
+        title: Cats
+        path: scala/cats
+        source_roots:
+          - src/main/scala
+      cats-effect:
+        title: Cats Effect
+        path: scala/cats-effect
+        source_roots:
+          - src/main/scala
+      zio:
+        title: Zio
+        path: scala/zio
+        source_roots:
+          - src/main/scala
