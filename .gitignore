@@ -1,21 +1,23 @@
+# -----------------------------
+# IDE / Editor
+# -----------------------------
 .idea/
 .bsp/
 .metals/
 .bloop/
 .vscode/
-out/
-cmake-build-*/
 
 *.iml
 *.ipr
 *.iws
-*.class
-*.log
-*.ctxt
-*.hprof
-hs_err_pid*
-replay_pid*
+.history
+.cache
 
+# -----------------------------
+# Java / JVM
+# -----------------------------
+out/
+*.class
 .gradle/
 **/build/
 !java/cracking-the-coding-interview/src/**/build/
@@ -25,8 +27,76 @@ lib_managed/
 src_managed/
 project/boot/
 project/plugins/project/
-.history
-.cache
-.lib/
 
+# JVM logs / crashes
+*.log
+*.ctxt
+*.hprof
+hs_err_pid*
+replay_pid*
 spring-shell.log
+
+# -----------------------------
+# C / C++
+# -----------------------------
+
+# object files
+*.o
+*.obj
+
+# static libraries
+*.a
+*.lib
+
+# shared libraries
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# executables
+*.out
+*.exe
+*.app
+
+# debug symbols
+*.dSYM/
+*.pdb
+
+# dependency files
+*.d
+
+# precompiled headers
+*.gch
+*.pch
+
+# CMake
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+CTestTestfile.cmake
+cmake_install.cmake
+install_manifest.txt
+Makefile
+
+# Autotools
+autom4te.cache/
+aclocal.m4
+configure
+config.log
+config.status
+libtool
+m4/
+
+# generic build dirs
+build/
+bin/
+debug/
+release/
+
+# -----------------------------
+# OS files
+# -----------------------------
+.DS_Store
+Thumbs.db
