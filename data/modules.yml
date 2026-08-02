@@ -36,3 +36,13 @@ languages:
         path: scala/cats-effect
         source_roots:
           - src/main/scala
+
+  remnote:
+    title: RemNote
+    path: remnote
+    modules:
+      cosmic-dark:
+        title: COSMIC Dark
+        path: remnote/cosmic-dark
+        source_roots:
+          - .
