@@ -33,3 +33,4 @@ spring-shell.log
 
 node_modules/
 *.zip
+!remnote/cosmic-dark/cosmic-dark-theme.zip
