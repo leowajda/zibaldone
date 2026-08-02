@@ -30,3 +30,6 @@ project/plugins/project/
 .lib/
 
 spring-shell.log
+
+node_modules/
+*.zip
