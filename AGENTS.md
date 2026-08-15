@@ -3,8 +3,8 @@
 ## Structure
 - `java/` contains the Java study modules and build tooling.
 - `scala/` contains the Scala study modules and build tooling.
-- `remnote/` contains RemNote themes (CSS only for now).
-- `data/modules.yml` is the canonical catalog consumed by external renderers such as the website.
+- `remnote/` contains RemNote themes (CSS only). It is not a website catalog language.
+- `data/modules.yml` is the website catalog (Java and Scala only).
 
 ## Commands
 - Java build: `cd java && ./gradlew test`
