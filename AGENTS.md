@@ -12,8 +12,10 @@
 
 ## RemNote themes
 - Each theme lives in `remnote/<theme-id>/` with `theme.css`, `manifest.json`, `logo.png`, and a single-image `README.md`.
-- Package for upload: zip `theme.css`, `manifest.json`, and `logo.png` from the theme directory root.
-- Themes with `"theme": ["dark"]` apply in RemNote dark mode only.
+- Marketplace README images must be absolute `https://raw.githubusercontent.com/...` URLs. Relative `logo.png` does not render in RemNote.
+- Package for upload: zip `theme.css`, `manifest.json`, `logo.png`, and `README.md` from the theme directory root.
+- `"theme": ["light", "dark"]` is the dual-mode contract. `"theme": ["dark"]` is dark-only.
+- Active theme: `remnote/cosmic-dark` (store id `cosmic-dark`).
 
 ## Content Rules
 - Keep one repository-level `README.md` and one repository-level `LICENSE.md` at the root.
