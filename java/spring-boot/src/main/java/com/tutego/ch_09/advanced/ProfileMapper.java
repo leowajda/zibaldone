@@ -7,5 +7,7 @@ import org.springframework.core.convert.converter.Converter;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ProfileMapper extends Converter<Profile, ProfileDto> {
-    ProfileDto convert(Profile profile);
+
+  ProfileDto convert(Profile profile);
+
 }

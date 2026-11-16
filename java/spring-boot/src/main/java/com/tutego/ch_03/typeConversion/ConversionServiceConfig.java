@@ -9,10 +9,10 @@ import org.springframework.core.convert.ConversionService;
 @Configuration
 public class ConversionServiceConfig {
 
-    @Bean
-    @ConditionalOnMissingBean /* not always injected depends on the classpath */
-    public ConversionService conversionService() {
-        return ApplicationConversionService.getSharedInstance();
-    }
+  @Bean
+  @ConditionalOnMissingBean /* not always injected depends on the classpath */
+  public ConversionService conversionService() {
+    return ApplicationConversionService.getSharedInstance();
+  }
 
 }

@@ -9,24 +9,25 @@ import java.time.LocalDateTime;
 @Access(AccessType.FIELD)
 public class Photo extends AbstractEntity {
 
-    @ManyToOne
-    @JoinColumn(name = "profile_fk")
-    private Profile profile;
+  @ManyToOne
+  @JoinColumn(name = "profile_fk")
+  private Profile profile;
 
-    private String name;
+  private String name;
 
-    @Column(name = "is_profile_photo")
-    private boolean isProfilePhoto;
+  @Column(name = "is_profile_photo")
+  private boolean isProfilePhoto;
 
-    private LocalDateTime created;
+  private LocalDateTime created;
 
-    @Override
-    public String toString() {
-        return "Photo{" +
-                "profile=" + profile +
-                ", name='" + name + '\'' +
-                ", isProfilePhoto=" + isProfilePhoto +
-                ", created=" + created +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Photo{" +
+      "profile=" + profile +
+      ", name='" + name + '\'' +
+      ", isProfilePhoto=" + isProfilePhoto +
+      ", created=" + created +
+      '}';
+  }
+
 }

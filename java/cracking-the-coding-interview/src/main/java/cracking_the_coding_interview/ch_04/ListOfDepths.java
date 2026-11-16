@@ -7,27 +7,27 @@ import java.util.Queue;
 
 public class ListOfDepths {
 
-    private static List<List<TreeNode>> listOfDepths(TreeNode root) {
+  private static List<List<TreeNode>> listOfDepths(TreeNode root) {
 
-        Queue<TreeNode> queue = new ArrayDeque<>(List.of(root));
-        List<List<TreeNode>> listOfDepths = new ArrayList<>();
+    Queue<TreeNode>      queue        = new ArrayDeque<>(List.of(root));
+    List<List<TreeNode>> listOfDepths = new ArrayList<>();
 
-        while (!queue.isEmpty()) {
+    while (!queue.isEmpty()) {
 
-            int n = queue.size();
-            List<TreeNode> listOfDepth = new ArrayList<>();
+      int            n           = queue.size();
+      List<TreeNode> listOfDepth = new ArrayList<>();
 
-            for (int i = 0; i < n; i++) {
-                var node = queue.remove();
-                listOfDepth.add(node);
-                if (node.left != null)  queue.add(node.left);
-                if (node.right != null) queue.add(node.right);
-            }
+      for (int i = 0; i < n; i++) {
+        var node = queue.remove();
+        listOfDepth.add(node);
+        if (node.left != null) queue.add(node.left);
+        if (node.right != null) queue.add(node.right);
+      }
 
-            listOfDepths.add(listOfDepth);
-        }
-
-        return listOfDepths;
+      listOfDepths.add(listOfDepth);
     }
+
+    return listOfDepths;
+  }
 
 }

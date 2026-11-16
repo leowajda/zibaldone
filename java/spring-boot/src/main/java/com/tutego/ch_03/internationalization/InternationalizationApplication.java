@@ -10,19 +10,19 @@ import org.springframework.context.support.MessageSourceAccessor;
 @SpringBootApplication(scanBasePackageClasses = InternationalizationModule.class)
 public class InternationalizationApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(InternationalizationApplication.class);
+  private static final Logger logger = LoggerFactory.getLogger(InternationalizationApplication.class);
 
-    // Spring utility class (avoids Locale boilerplate)
-    private final MessageSourceAccessor messageSourceAccessor;
+  // Spring utility class (avoids Locale boilerplate)
+  private final MessageSourceAccessor messageSourceAccessor;
 
-    public InternationalizationApplication(MessageSource messageSource) {
-        this.messageSourceAccessor = new MessageSourceAccessor(messageSource);
-        logger.info(messageSourceAccessor.getMessage("shell.fs.path-exist", new Object[]{"some-argument"}));
-        logger.info(messageSourceAccessor.getMessage("shell.fs.path-not-exist", new Object[]{"some-other-argument"}));
-    }
+  public InternationalizationApplication(MessageSource messageSource) {
+    this.messageSourceAccessor = new MessageSourceAccessor(messageSource);
+    logger.info(messageSourceAccessor.getMessage("shell.fs.path-exist", new Object[]{"some-argument"}));
+    logger.info(messageSourceAccessor.getMessage("shell.fs.path-not-exist", new Object[]{"some-other-argument"}));
+  }
 
-    public static void main(String... args) {
-        SpringApplication.run(InternationalizationApplication.class, args);
-    }
+  public static void main(String... args) {
+    SpringApplication.run(InternationalizationApplication.class, args);
+  }
 
 }

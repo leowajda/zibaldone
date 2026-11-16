@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AdvancedController {
 
-    private final ProfileMapper profileMapper;
+  private final ProfileMapper profileMapper;
 
-    public AdvancedController(ProfileMapper profileMapper, ConversionService conversionService) {
-        this.profileMapper = profileMapper;
-        // profileMapper.convert(profile)
-        // conversionService.convert(profile, ProfileDto.class);
-    }
+  public AdvancedController(ProfileMapper profileMapper, ConversionService conversionService) {
+    this.profileMapper = profileMapper;
+    // profileMapper.convert(profile)
+    // conversionService.convert(profile, ProfileDto.class);
+  }
 
-    @PutMapping("validate") // in case validation were to fail, an exception would be thrown
-    public ResponseEntity<?> update(@Valid /* will not work on Optional<T> */ @RequestBody ProfileDto dto) {
-        return ResponseEntity.accepted().body(dto);
-    }
+  @PutMapping("validate") // in case validation were to fail, an exception would be thrown
+  public ResponseEntity<?> update(@Valid /* will not work on Optional<T> */ @RequestBody ProfileDto dto) {
+    return ResponseEntity.accepted().body(dto);
+  }
 
 }

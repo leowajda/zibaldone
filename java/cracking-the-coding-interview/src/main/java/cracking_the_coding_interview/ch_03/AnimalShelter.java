@@ -7,51 +7,55 @@ import java.util.NoSuchElementException;
 
 public class AnimalShelter {
 
-    private sealed abstract class Animal permits Dog, Cat {
-         public Instant arrivalTime;
+  private sealed abstract class Animal permits Dog, Cat {
 
-         public final void setArrivalTime() {
-            this.arrivalTime = Instant.now();
-        }
+    public Instant arrivalTime;
+
+    public final void setArrivalTime() {
+      this.arrivalTime = Instant.now();
     }
 
-    private final class Dog extends Animal { }
-    private final class Cat extends Animal { }
+  }
 
-    private final List<Dog> dogQueue;
-    private final List<Cat> catQueue;
+  private final class Dog extends Animal {}
 
-    public AnimalShelter() {
-        this.dogQueue = new LinkedList<>();
-        this.catQueue = new LinkedList<>();
+  private final class Cat extends Animal {}
+
+  private final List<Dog> dogQueue;
+  private final List<Cat> catQueue;
+
+  public AnimalShelter() {
+    this.dogQueue = new LinkedList<>();
+    this.catQueue = new LinkedList<>();
+  }
+
+  public void enqueue(Animal animal) {
+    // mutability is necessary if the arrival time differs from the initialization time
+    animal.setArrivalTime();
+
+    switch (animal) {
+      case Cat cat -> catQueue.addLast(cat);
+      case Dog dog -> dogQueue.addLast(dog);
+      default      -> throw new IllegalStateException("Unexpected value: " + animal);
     }
+  }
 
-    public void enqueue(Animal animal) {
-        // mutability is necessary if the arrival time differs from the initialization time
-        animal.setArrivalTime();
+  public Animal dequeueAny() {
 
-        switch (animal) {
-            case Cat cat -> catQueue.addLast(cat);
-            case Dog dog -> dogQueue.addLast(dog);
-            default      -> throw new IllegalStateException("Unexpected value: " + animal);
-        }
-    }
+    if (dogQueue.isEmpty() && catQueue.isEmpty()) throw new NoSuchElementException();
+    if (dogQueue.isEmpty()) return dequeueCat();
+    if (catQueue.isEmpty()) return dequeueDog();
 
-    public Animal dequeueAny() {
+    Animal oldestDog = dogQueue.getFirst(), oldestCat = catQueue.getFirst();
+    return oldestDog.arrivalTime.isBefore(oldestCat.arrivalTime) ? dequeueDog() : dequeueCat();
+  }
 
-        if (dogQueue.isEmpty() && catQueue.isEmpty()) throw new NoSuchElementException();
-        if (dogQueue.isEmpty())                       return dequeueCat();
-        if (catQueue.isEmpty())                       return dequeueDog();
+  public Dog dequeueDog() {
+    return dogQueue.removeFirst();
+  }
 
-        Animal oldestDog = dogQueue.getFirst(), oldestCat = catQueue.getFirst();
-        return oldestDog.arrivalTime.isBefore(oldestCat.arrivalTime) ? dequeueDog() : dequeueCat();
-    }
+  public Cat dequeueCat() {
+    return catQueue.removeFirst();
+  }
 
-    public Dog dequeueDog() {
-        return dogQueue.removeFirst();
-    }
-
-    public Cat dequeueCat() {
-        return catQueue.removeFirst();
-    }
 }

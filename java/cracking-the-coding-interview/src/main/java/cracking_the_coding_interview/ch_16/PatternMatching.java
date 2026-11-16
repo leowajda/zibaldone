@@ -2,36 +2,36 @@ package cracking_the_coding_interview.ch_16;
 
 public class PatternMatching {
 
-    private static boolean matches(String pattern, String value) {
-        if (pattern.isEmpty()) return value.isEmpty();
+  private static boolean matches(String pattern, String value) {
+    if (pattern.isEmpty()) return value.isEmpty();
 
-        char mainCh     = pattern.charAt(0);
-        char altCh      = mainCh == 'a' ? 'b' : 'a';
-        int mainCount   = (int) pattern.chars().filter(ch -> (char) ch == mainCh).count();
-        int altCount    = pattern.length() - mainCount;
-        int altOffset   = pattern.indexOf(altCh);
-        int mainMaxSize = value.length() / mainCount;
+    char mainCh      = pattern.charAt(0);
+    char altCh       = mainCh == 'a' ? 'b' : 'a';
+    int  mainCount   = (int) pattern.chars().filter(ch -> (char) ch == mainCh).count();
+    int  altCount    = pattern.length() - mainCount;
+    int  altOffset   = pattern.indexOf(altCh);
+    int  mainMaxSize = value.length() / mainCount;
 
-        for (int mainSize = 0; mainSize <= mainMaxSize; mainSize++) {
-            int altMaxSize = value.length() - (mainSize * mainCount);
-            var main = value.substring(0, mainSize);
-            if (altMaxSize == 0 || altMaxSize % altCount == 0) {
-                int altStart    = mainSize * altOffset;
-                int altEnd      = altStart + (altMaxSize / altCount);
-                var alt         = altMaxSize == 0 ? "" : value.substring(altStart, altEnd);
-                var candidate   = asPattern(main, alt, pattern);
-                if (candidate.equals(pattern)) return true;
-            }
-        }
-
-        return false;
+    for (int mainSize = 0; mainSize <= mainMaxSize; mainSize++) {
+      int altMaxSize = value.length() - (mainSize * mainCount);
+      var main       = value.substring(0, mainSize);
+      if (altMaxSize == 0 || altMaxSize % altCount == 0) {
+        int altStart  = mainSize * altOffset;
+        int altEnd    = altStart + (altMaxSize / altCount);
+        var alt       = altMaxSize == 0 ? "" : value.substring(altStart, altEnd);
+        var candidate = asPattern(main, alt, pattern);
+        if (candidate.equals(pattern)) return true;
+      }
     }
 
-    private static String asPattern(String main, String alt, String pattern) {
-        StringBuilder sb = new StringBuilder();
-        char mainCh = pattern.charAt(0);
-        pattern.chars().forEach(ch -> sb.append((char) ch == mainCh ? main : alt));
-        return sb.toString();
-    }
+    return false;
+  }
+
+  private static String asPattern(String main, String alt, String pattern) {
+    StringBuilder sb     = new StringBuilder();
+    char          mainCh = pattern.charAt(0);
+    pattern.chars().forEach(ch -> sb.append((char) ch == mainCh ? main : alt));
+    return sb.toString();
+  }
 
 }

@@ -6,5 +6,7 @@ import java.time.YearMonth;
 import java.util.List;
 
 public record LastSeenStatistics(List<Data> data) {
-    record Data(@JsonProperty("x") YearMonth yearMonth, @JsonProperty("y") int count) {}
+
+  record Data(@JsonProperty("x") YearMonth yearMonth, @JsonProperty("y") int count) {}
+
 }

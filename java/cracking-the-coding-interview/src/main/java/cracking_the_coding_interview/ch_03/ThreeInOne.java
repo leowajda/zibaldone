@@ -4,54 +4,54 @@ import java.util.EmptyStackException;
 
 public class ThreeInOne {
 
-    private static final int NUM_STACKS = 3;
+  private static final int NUM_STACKS = 3;
 
-    private final int capacity;
-    private final int[] values;
-    private final int[] sizes;
+  private final int   capacity;
+  private final int[] values;
+  private final int[] sizes;
 
-    public ThreeInOne(int capacity) {
-        this.capacity = capacity;
-        this.sizes    = new int[NUM_STACKS];
-        this.values   = new int[NUM_STACKS * capacity];
-    }
+  public ThreeInOne(int capacity) {
+    this.capacity = capacity;
+    this.sizes    = new int[NUM_STACKS];
+    this.values   = new int[NUM_STACKS * capacity];
+  }
 
-    public void push(int stackNum, int value) {
-        if (isFull(stackNum))
-            throw new IllegalStateException(String.format("%d has reached capacity of %d", stackNum, capacity));
+  public void push(int stackNum, int value) {
+    if (isFull(stackNum))
+      throw new IllegalStateException(String.format("%d has reached capacity of %d", stackNum, capacity));
 
-        sizes[stackNum]++;
-        values[ithTop(stackNum)] = value;
-    }
+    sizes[stackNum]++;
+    values[ithTop(stackNum)] = value;
+  }
 
-    public int pop(int stackNum) {
-        if (isEmpty(stackNum))
-            throw new EmptyStackException();
+  public int pop(int stackNum) {
+    if (isEmpty(stackNum))
+      throw new EmptyStackException();
 
-        int value = values[ithTop(stackNum)];
-        values[ithTop(stackNum)] = 0;
-        sizes[stackNum]--;
-        return value;
-    }
+    int value = values[ithTop(stackNum)];
+    values[ithTop(stackNum)] = 0;
+    sizes[stackNum]--;
+    return value;
+  }
 
-    public int peek(int stackNum) {
-        if (isEmpty(stackNum))
-            throw new EmptyStackException();
+  public int peek(int stackNum) {
+    if (isEmpty(stackNum))
+      throw new EmptyStackException();
 
-        return values[ithTop(stackNum)];
-    }
+    return values[ithTop(stackNum)];
+  }
 
-    private boolean isEmpty(int stackNum) {
-        return sizes[stackNum] == 0;
-    }
+  private boolean isEmpty(int stackNum) {
+    return sizes[stackNum] == 0;
+  }
 
-    private boolean isFull(int stackNum) {
-        return sizes[stackNum] == this.capacity;
-    }
+  private boolean isFull(int stackNum) {
+    return sizes[stackNum] == this.capacity;
+  }
 
-    private int ithTop(int stackNum) {
-        int offset = stackNum * capacity;
-        return offset - 1 + sizes[stackNum];
-    }
+  private int ithTop(int stackNum) {
+    int offset = stackNum * capacity;
+    return offset - 1 + sizes[stackNum];
+  }
 
 }

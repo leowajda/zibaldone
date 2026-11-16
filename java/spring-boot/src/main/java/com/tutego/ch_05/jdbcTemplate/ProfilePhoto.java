@@ -2,30 +2,32 @@ package com.tutego.ch_05.jdbcTemplate;
 
 // JavaBean: reusable Java class with a no-arg constructor and getter/setter properties following standard naming conventions.
 public class ProfilePhoto {
-    private long id;
-    private String imageName;
 
-    public long getId() {
-        return id;
-    }
+  private long   id;
+  private String imageName;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public String getImageName() {
-        return imageName;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
-    }
+  public String getImageName() {
+    return imageName;
+  }
 
-    @Override
-    public String toString() {
-        return "ProfilePhoto{" +
-                "id=" + id +
-                ", imageName='" + imageName + '\'' +
-                '}';
-    }
+  public void setImageName(String imageName) {
+    this.imageName = imageName;
+  }
+
+  @Override
+  public String toString() {
+    return "ProfilePhoto{" +
+      "id=" + id +
+      ", imageName='" + imageName + '\'' +
+      '}';
+  }
+
 }

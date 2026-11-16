@@ -7,9 +7,9 @@ import org.springframework.format.Formatter;
 @Configuration
 class YearMonthRangeFormatterConfig {
 
-    @Bean // registers a formatter to be used by ConversionService
-    public Formatter<YearMonthRange> yearMonthRangeFormatter() {
-        return new YearMonthRangeFormatter();
-    }
+  @Bean // registers a formatter to be used by ConversionService
+  public Formatter<YearMonthRange> yearMonthRangeFormatter() {
+    return new YearMonthRangeFormatter();
+  }
 
 }

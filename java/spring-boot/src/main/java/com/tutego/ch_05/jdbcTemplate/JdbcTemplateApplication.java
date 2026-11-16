@@ -8,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackageClasses = JdbcTemplateModule.class)
 public class JdbcTemplateApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(JdbcTemplateApplication.class);
+  private static final Logger logger = LoggerFactory.getLogger(JdbcTemplateApplication.class);
 
-    public static void main(String... args) {
-        SpringApplication.run(JdbcTemplateApplication.class, args);
-    }
+  public static void main(String... args) {
+    SpringApplication.run(JdbcTemplateApplication.class, args);
+  }
 
 }

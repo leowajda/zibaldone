@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Child {
 
-    @Autowired
-    private Parent parent;
+  @Autowired
+  private Parent parent;
 
 }

@@ -6,14 +6,16 @@ import jakarta.persistence.Embeddable;
 // the @Entity @Access policy cascades to @Embeddable types as well.
 @Embeddable
 public class LoginCredentials {
-    private String email;
-    private String password;
 
-    @Override
-    public String toString() {
-        return "LoginCredentials{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+  private String email;
+  private String password;
+
+  @Override
+  public String toString() {
+    return "LoginCredentials{" +
+      "email='" + email + '\'' +
+      ", password='" + password + '\'' +
+      '}';
+  }
+
 }
