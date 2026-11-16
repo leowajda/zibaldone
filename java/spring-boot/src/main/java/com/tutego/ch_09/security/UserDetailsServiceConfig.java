@@ -9,16 +9,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 @Configuration
 public class UserDetailsServiceConfig {
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return username -> switch (username) {
-            case "user" -> User
-                    .withUsername(username)
-                    .password("{noop}password") // {noop} tells the DelegatingPasswordEncoder that NoOpPasswordEncoder is to be used
-                    .roles("USER")
-                    .build();
-            default -> throw new UsernameNotFoundException(username);
-        };
-    }
+  @Bean
+  public UserDetailsService userDetailsService() {
+    return username -> switch (username) {
+      case "user" -> User
+        .withUsername(username)
+        .password("{noop}password") // {noop} tells the DelegatingPasswordEncoder that NoOpPasswordEncoder is to be used
+        .roles("USER")
+        .build();
+      default     -> throw new UsernameNotFoundException(username);
+    };
+  }
 
 }

@@ -5,15 +5,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(
-        scanBasePackageClasses = {
-                JakartaPersistenceAdvancedModule.class,
-                JakartaPersistenceReadModule.class
-        }
+  scanBasePackageClasses = {
+    JakartaPersistenceAdvancedModule.class,
+    JakartaPersistenceReadModule.class
+  }
 )
 public class JakartaPersistenceAdvancedApplication {
 
-    public static void main(String... args) {
-        SpringApplication.run(JakartaPersistenceAdvancedApplication.class, args);
-    }
+  public static void main(String... args) {
+    SpringApplication.run(JakartaPersistenceAdvancedApplication.class, args);
+  }
 
 }

@@ -10,19 +10,19 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 public class HierarchicalContextApplication {
 
-    @Configuration(proxyBeanMethods = false)
-    @ComponentScan("com.tutego.ch_02.beanLifeCycle.hierarchicalContext.parent")
-    public static class ParentConfig {}
+  @Configuration(proxyBeanMethods = false)
+  @ComponentScan("com.tutego.ch_02.beanLifeCycle.hierarchicalContext.parent")
+  public static class ParentConfig {}
 
-    @Configuration(proxyBeanMethods = false)
-    @ComponentScan("com.tutego.ch_02.beanLifeCycle.hierarchicalContext.child")
-    public static class ChildConfig {}
+  @Configuration(proxyBeanMethods = false)
+  @ComponentScan("com.tutego.ch_02.beanLifeCycle.hierarchicalContext.child")
+  public static class ChildConfig {}
 
-    public static void main(String... args) {
-        new SpringApplicationBuilder()
-                .parent(ParentConfig.class)
-                .child(ChildConfig.class)
-                .run(args);
-    }
+  public static void main(String... args) {
+    new SpringApplicationBuilder()
+      .parent(ParentConfig.class)
+      .child(ChildConfig.class)
+      .run(args);
+  }
 
 }

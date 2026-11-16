@@ -12,18 +12,18 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication(scanBasePackageClasses = AsyncModule.class)
 public class AsyncApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(AsyncApplication.class);
+  private static final Logger logger = LoggerFactory.getLogger(AsyncApplication.class);
 
-    public static void main(String... args) {
-        SpringApplication.run(AsyncApplication.class, args);
-    }
+  public static void main(String... args) {
+    SpringApplication.run(AsyncApplication.class, args);
+  }
 
-    @Bean
-    public ApplicationRunner runAtStartTime(SleepAndDream sleepAndDream) {
-        return args -> {
-            sleepAndDream.sleepAsyncVoid();
-            sleepAndDream.sleepAsyncString();
-        };
-    }
+  @Bean
+  public ApplicationRunner runAtStartTime(SleepAndDream sleepAndDream) {
+    return args -> {
+      sleepAndDream.sleepAsyncVoid();
+      sleepAndDream.sleepAsyncString();
+    };
+  }
 
 }

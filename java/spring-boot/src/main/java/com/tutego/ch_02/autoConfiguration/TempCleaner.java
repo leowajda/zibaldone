@@ -6,9 +6,10 @@ import org.slf4j.LoggerFactory;
 @ConditionalOnLowDiskSpace
 class TempCleaner {
 
-    private final Logger log = LoggerFactory.getLogger(getClass());
+  private final Logger log = LoggerFactory.getLogger(getClass());
 
-    public TempCleaner() {
-        log.info("Cleaning temp directory to acquire more free disk space");
-    }
+  public TempCleaner() {
+    log.info("Cleaning temp directory to acquire more free disk space");
+  }
+
 }

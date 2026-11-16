@@ -10,24 +10,26 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConditionalConfiguration {
 
-    private static final Logger logger = LoggerFactory.getLogger(ConditionalConfiguration.class);
+  private static final Logger logger = LoggerFactory.getLogger(ConditionalConfiguration.class);
 
-    private static class A {
-        public A() {
-            logger.info("bean: a has been created");
-        }
+  private static class A {
+
+    public A() {
+      logger.info("bean: a has been created");
     }
 
-    @Bean
-    @ConditionalOnExpression("1+1==2")
-    public A conditionalBeanOne() {
-        return new A();
-    }
+  }
 
-    @Bean
-    @ConditionalOnProperty(name = "conditional.property", havingValue = "true")
-    public A conditionalBeanTwo() {
-        return new A();
-    }
+  @Bean
+  @ConditionalOnExpression("1+1==2")
+  public A conditionalBeanOne() {
+    return new A();
+  }
+
+  @Bean
+  @ConditionalOnProperty(name = "conditional.property", havingValue = "true")
+  public A conditionalBeanTwo() {
+    return new A();
+  }
 
 }

@@ -10,17 +10,18 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 @SpringBootApplication(scanBasePackageClasses = ExternalConfigurationModule.class)
 public class ExternalConfigurationApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(ExternalConfigurationApplication.class);
+  private static final Logger logger = LoggerFactory.getLogger(ExternalConfigurationApplication.class);
 
-    public static void main(String... args) {
-        var ctx = SpringApplication.run(ExternalConfigurationApplication.class, args);
-        var env = ctx.getEnvironment();
+  public static void main(String... args) {
+    var ctx = SpringApplication.run(ExternalConfigurationApplication.class, args);
+    var env = ctx.getEnvironment();
 
-        env.getPropertySources()
-                .forEach(propSource -> logger.info("{}= \n{}", propSource, propSource.getSource()));
+    env.getPropertySources()
+      .forEach(propSource -> logger.info("{}= \n{}", propSource, propSource.getSource()));
 
-        logger.info("secure-random.int={}", env.getProperty("secure-random.int"));
-        logger.info("secure-random.long={}", env.getProperty("secure-random.long"));
+    logger.info("secure-random.int={}", env.getProperty("secure-random.int"));
+    logger.info("secure-random.long={}", env.getProperty("secure-random.long"));
 
-    }
+  }
+
 }

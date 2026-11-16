@@ -9,9 +9,9 @@ import java.io.IOException;
 // can also be registered via @WebServlet + @ServletComponentScan
 public class StatisticServlet extends HttpServlet {
 
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.getWriter().write("123456");
-    }
+  @Override
+  protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    resp.getWriter().write("123456");
+  }
 
 }

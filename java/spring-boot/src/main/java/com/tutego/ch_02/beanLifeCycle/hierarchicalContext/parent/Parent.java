@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class Parent {
 
-    // hierarchical context makes such a wiring illegal
-    // @Autowired private Child child;
+  // hierarchical context makes such a wiring illegal
+  // @Autowired private Child child;
 }

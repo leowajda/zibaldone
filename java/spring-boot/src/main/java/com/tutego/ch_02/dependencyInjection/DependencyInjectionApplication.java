@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackageClasses = {DependencyInjection.class, ClassPathScanning.class})
 public class DependencyInjectionApplication {
 
-    public static void main(String... args) {
-        SpringApplication.run(DependencyInjectionApplication.class, args);
-    }
+  public static void main(String... args) {
+    SpringApplication.run(DependencyInjectionApplication.class, args);
+  }
+
 }

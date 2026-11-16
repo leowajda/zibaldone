@@ -12,20 +12,20 @@ import org.springframework.stereotype.Component;
 @Component
 public class LazyComponent {
 
-    private static final Logger logger = LoggerFactory.getLogger(LazyComponent.class);
+  private static final Logger logger = LoggerFactory.getLogger(LazyComponent.class);
 
-    public LazyComponent() {
-        logger.info(LazyComponent.class.getName() + " is being initialized");
-    }
+  public LazyComponent() {
+    logger.info(LazyComponent.class.getName() + " is being initialized");
+  }
 
-    @PostConstruct
-    public void postConstruct() {
-        logger.info("postConstruct call for bean: " + LazyComponent.class.getName());
-    }
+  @PostConstruct
+  public void postConstruct() {
+    logger.info("postConstruct call for bean: " + LazyComponent.class.getName());
+  }
 
-    @PreDestroy
-    public void preDestroy() {
-        logger.info("preDestroy call for bean " + LazyComponent.class.getName());
-    }
+  @PreDestroy
+  public void preDestroy() {
+    logger.info("preDestroy call for bean " + LazyComponent.class.getName());
+  }
 
 }

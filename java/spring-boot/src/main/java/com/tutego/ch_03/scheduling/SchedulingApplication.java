@@ -8,8 +8,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication(scanBasePackageClasses = SchedulingModule.class)
 public class SchedulingApplication {
 
-    // https://docs.spring.io/spring-boot/reference/io/quartz.html
-    public static void main(String... args) {
-        SpringApplication.run(SchedulingApplication.class, args);
-    }
+  // https://docs.spring.io/spring-boot/reference/io/quartz.html
+  public static void main(String... args) {
+    SpringApplication.run(SchedulingApplication.class, args);
+  }
+
 }

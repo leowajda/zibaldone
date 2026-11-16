@@ -4,27 +4,28 @@ import java.time.YearMonth;
 
 // WebDataBinder can manipulate beans, invokes the ConversionService recursively
 public class YearMonthRange {
-    private YearMonth start, end;
 
+  private YearMonth start, end;
 
-    public YearMonth getStart() {
-        return start;
-    }
+  public YearMonth getStart() {
+    return start;
+  }
 
-    public void setStart(YearMonth start) {
-        this.start = start;
-    }
+  public void setStart(YearMonth start) {
+    this.start = start;
+  }
 
-    public YearMonth getEnd() {
-        return end;
-    }
+  public YearMonth getEnd() {
+    return end;
+  }
 
-    public void setEnd(YearMonth end) {
-        this.end = end;
-    }
+  public void setEnd(YearMonth end) {
+    this.end = end;
+  }
 
-    @Override
-    public String toString() {
-        return "YearMonthRange[start='%s', end='%s']".formatted(start, end);
-    }
+  @Override
+  public String toString() {
+    return "YearMonthRange[start='%s', end='%s']".formatted(start, end);
+  }
+
 }

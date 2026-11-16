@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackageClasses = JakartaPersistenceReadModule.class)
 public class JakartaPersistenceReadApplication {
 
-    public static void main(String... args) {
-        SpringApplication.run(JakartaPersistenceReadApplication.class, args);
-    }
+  public static void main(String... args) {
+    SpringApplication.run(JakartaPersistenceReadApplication.class, args);
+  }
 
 }

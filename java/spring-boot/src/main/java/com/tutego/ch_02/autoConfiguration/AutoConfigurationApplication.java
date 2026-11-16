@@ -7,17 +7,17 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 
 @SpringBootApplication(
-        scanBasePackageClasses = AutoConfigurationModule.class,
-        exclude = { // selectively exclude some of the autoconfigured beans (improves start-up time)
-                DataSourceAutoConfiguration.class,
-                DataSourceTransactionManagerAutoConfiguration.class,
-                HibernateJpaAutoConfiguration.class
-        }
+  scanBasePackageClasses = AutoConfigurationModule.class,
+  exclude = { // selectively exclude some of the autoconfigured beans (improves start-up time)
+    DataSourceAutoConfiguration.class,
+    DataSourceTransactionManagerAutoConfiguration.class,
+    HibernateJpaAutoConfiguration.class
+  }
 )
 public class AutoConfigurationApplication {
 
-    public static void main(String... args) {
-        SpringApplication.run(AutoConfigurationApplication.class, args);
-    }
+  public static void main(String... args) {
+    SpringApplication.run(AutoConfigurationApplication.class, args);
+  }
 
 }

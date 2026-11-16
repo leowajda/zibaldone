@@ -9,21 +9,14 @@ import java.time.LocalDateTime;
 
 public record Photo(
 
-        @Min(1)
-        Long id,
+  @Min(1) Long id,
 
-        @Min(1)
-        long profile,
+  @Min(1) long profile,
 
-        @NotNull
-        @Pattern(regexp = "[\\w_-]{1,200}")
-        String name,
+  @NotNull @Pattern(regexp = "[\\w_-]{1,200}") String name,
 
-        boolean isProfilePhoto,
+  boolean isProfilePhoto,
 
-        @NotNull
-        @Past
-        LocalDateTime created
+  @NotNull @Past LocalDateTime created
 ) {
 }
-

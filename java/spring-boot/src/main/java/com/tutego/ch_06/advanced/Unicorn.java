@@ -7,25 +7,25 @@ import jakarta.persistence.*;
 @Access(AccessType.FIELD)
 public class Unicorn extends AbstractEntity {
 
-    @Embedded
-    @AttributeOverrides(
-            value = {
-                    @AttributeOverride(name = "email", column = @Column(name = "email")),
-                    @AttributeOverride(name = "password", column = @Column(name = "password"))
-            }
-    )
-    private LoginCredentials credentials;
-
-    @OneToOne
-    @JoinColumn(name = "profile_fk") // loaded eagerly
-    private Profile profile;
-
-
-    @Override
-    public String toString() {
-        return "Unicorn{" +
-                "credentials=" + credentials +
-                ", profile=" + profile +
-                '}';
+  @Embedded
+  @AttributeOverrides(
+    value = {
+      @AttributeOverride(name = "email", column = @Column(name = "email")),
+      @AttributeOverride(name = "password", column = @Column(name = "password"))
     }
+  )
+  private LoginCredentials credentials;
+
+  @OneToOne
+  @JoinColumn(name = "profile_fk") // loaded eagerly
+  private Profile profile;
+
+  @Override
+  public String toString() {
+    return "Unicorn{" +
+      "credentials=" + credentials +
+      ", profile=" + profile +
+      '}';
+  }
+
 }

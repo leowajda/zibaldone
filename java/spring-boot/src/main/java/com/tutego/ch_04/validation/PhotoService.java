@@ -11,14 +11,14 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class PhotoService {
 
-    private static final Logger logger = LoggerFactory.getLogger(PhotoService.class);
+  private static final Logger logger = LoggerFactory.getLogger(PhotoService.class);
 
-    public void checkValidity(@Valid Photo photo) {
-        logger.info("proxy has successfully validated photo: {}", photo);
-    }
+  public void checkValidity(@Valid Photo photo) {
+    logger.info("proxy has successfully validated photo: {}", photo);
+  }
 
-    public @NotEmpty String invalidOutput() {
-        return "";
-    }
+  public @NotEmpty String invalidOutput() {
+    return "";
+  }
 
 }

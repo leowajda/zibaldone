@@ -14,14 +14,14 @@ import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 @Configuration
 public class JwtConfiguration {
 
-    @Bean
-    public JwtEncoder jwtEncoder(RSAKey rsaKey) {
-        return new NimbusJwtEncoder(new ImmutableJWKSet<>(new JWKSet(rsaKey)));
-    }
+  @Bean
+  public JwtEncoder jwtEncoder(RSAKey rsaKey) {
+    return new NimbusJwtEncoder(new ImmutableJWKSet<>(new JWKSet(rsaKey)));
+  }
 
-    @Bean
-    public JwtDecoder jwtDecoder(RSAKey rsaKey) throws JOSEException {
-        return NimbusJwtDecoder.withPublicKey(rsaKey.toRSAPublicKey()).build();
-    }
+  @Bean
+  public JwtDecoder jwtDecoder(RSAKey rsaKey) throws JOSEException {
+    return NimbusJwtDecoder.withPublicKey(rsaKey.toRSAPublicKey()).build();
+  }
 
 }

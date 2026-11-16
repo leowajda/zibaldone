@@ -8,22 +8,23 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class PrePostBean {
 
-    private static final Logger logger = LoggerFactory.getLogger(PrePostBean.class);
+  private static final Logger logger = LoggerFactory.getLogger(PrePostBean.class);
 
-    private class Foo {
-        private void initMethod() {
-            logger.info("initMethod call for bean: " + Foo.class.getName());
-        }
+  private class Foo {
 
-        private void destroyMethod() {
-            logger.info("destroyMethod call for bean: " + Foo.class.getName());
-        }
+    private void initMethod() {
+      logger.info("initMethod call for bean: " + Foo.class.getName());
     }
 
-    @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
-    public Foo uuid() {
-        return new Foo();
+    private void destroyMethod() {
+      logger.info("destroyMethod call for bean: " + Foo.class.getName());
     }
 
+  }
+
+  @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
+  public Foo uuid() {
+    return new Foo();
+  }
 
 }

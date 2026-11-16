@@ -8,10 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SpringShellApplication {
 
-    private static final Logger logger = LoggerFactory.getLogger(SpringShellApplication.class);
+  private static final Logger logger = LoggerFactory.getLogger(SpringShellApplication.class);
 
-    public static void main(String... args) {
-        SpringApplication.run(com.tutego.ch_02.dependencyInjection.FsCommands.class, args);
-        logger.info("Spring Shell blocks upon the application initialization, resumes upon closing..");
-    }
+  public static void main(String... args) {
+    SpringApplication.run(com.tutego.ch_02.dependencyInjection.FsCommands.class, args);
+    logger.info("Spring Shell blocks upon the application initialization, resumes upon closing..");
+  }
+
 }

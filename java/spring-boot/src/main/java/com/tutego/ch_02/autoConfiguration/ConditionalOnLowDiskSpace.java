@@ -1,9 +1,7 @@
 package com.tutego.ch_02.autoConfiguration;
 
-import org.springframework.context.annotation.Conditional;
-
 import java.lang.annotation.*;
-
+import org.springframework.context.annotation.Conditional;
 
 /*
 * @ConditionalOnProperty
@@ -45,4 +43,4 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Documented
 @Conditional(LowDiskSpaceCondition.class)
-public @interface ConditionalOnLowDiskSpace { }
+public @interface ConditionalOnLowDiskSpace {}
